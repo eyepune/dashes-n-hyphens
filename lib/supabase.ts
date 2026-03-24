@@ -35,19 +35,7 @@ export interface ContactMessage {
   read?: boolean
 }
 
-export interface BlogPost {
-  id?: string
-  title: string
-  slug: string
-  excerpt: string
-  content: string
-  author: string
-  category: string
-  cover_image?: string
-  published: boolean
-  created_at?: string
-  updated_at?: string
-}
+
 
 export async function submitStartupApplication(data: Omit<StartupApplication, 'id' | 'created_at'>) {
   if (!supabase) return { result: null, error: null }
@@ -81,55 +69,7 @@ export async function getContactMessages() {
   } catch { return { data: [], error: null } }
 }
 
-export async function getBlogPosts(publishedOnly = true) {
-  if (!supabase) return { data: [], error: null }
-  try {
-    let query = supabase.from('blog_posts').select('*').order('created_at', { ascending: false })
-    if (publishedOnly) query = query.eq('published', true)
-    const { data, error } = await query
-    return { data: data || [], error }
-  } catch { return { data: [], error: null } }
-}
 
-export async function getBlogPost(id: string) {
-  if (!supabase) return { data: null, error: null }
-  try {
-    const { data, error } = await supabase.from('blog_posts').select('*').eq('id', id).single()
-    return { data, error }
-  } catch { return { data: null, error: null } }
-}
-
-export async function getBlogPostBySlug(slug: string) {
-  if (!supabase) return { data: null, error: null }
-  try {
-    const { data, error } = await supabase.from('blog_posts').select('*').eq('slug', slug).eq('published', true).single()
-    return { data, error }
-  } catch { return { data: null, error: null } }
-}
-
-export async function createBlogPost(data: Omit<BlogPost, 'id' | 'created_at' | 'updated_at'>) {
-  if (!supabase) return { result: null, error: null }
-  try {
-    const { data: result, error } = await supabase.from('blog_posts').insert([data]).select()
-    return { result, error }
-  } catch { return { result: null, error: null } }
-}
-
-export async function updateBlogPost(id: string, data: Partial<BlogPost>) {
-  if (!supabase) return { result: null, error: null }
-  try {
-    const { data: result, error } = await supabase.from('blog_posts').update({ ...data, updated_at: new Date().toISOString() }).eq('id', id).select()
-    return { result, error }
-  } catch { return { result: null, error: null } }
-}
-
-export async function deleteBlogPost(id: string) {
-  if (!supabase) return { error: null }
-  try {
-    const { error } = await supabase.from('blog_posts').delete().eq('id', id)
-    return { error }
-  } catch { return { error: null } }
-}
 
 export async function uploadPitchDeck(file: File, applicationId: string) {
   if (!supabase) return { url: null, error: null }

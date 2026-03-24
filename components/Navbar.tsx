@@ -12,7 +12,6 @@ const navLinks = [
   { href: "/ipo-advisory", label: "IPO Advisory" },
   { href: "/startup-funding", label: "Startup Funding" },
   { href: "/government-grants", label: "Gov. Grants" },
-  { href: "/insights", label: "Insights" },
   { href: "/contact", label: "Contact" },
 ];
 

@@ -40,3 +40,5 @@ next-env.d.ts
 .trae/
 skills/
 skills-lock.json
+
+.vercel
