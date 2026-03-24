@@ -12,7 +12,7 @@ export default function EyePuneBanner() {
               Powered by our Digital Partner
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 800, fontSize: "22px", color: "#0B1F2F" }}>
+              <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 800, fontSize: "22px", color: "#DC143C" }}>
                 EyE PunE
               </span>
               <span style={{ background: "#0B1F2F", color: "#4EC3C7", fontSize: "9px", fontWeight: 700, padding: "3px 9px", borderRadius: "3px", letterSpacing: "0.1em", textTransform: "uppercase", fontFamily: "'DM Sans', sans-serif" }}>

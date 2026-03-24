@@ -128,7 +128,7 @@ export default function Footer() {
           style={{ color: "rgba(255,255,255,0.22)", fontSize: "11px", fontFamily: "'DM Sans', sans-serif", textDecoration: "none", display: "flex", alignItems: "center", gap: "5px" }}
         >
           Designed & Developed by{" "}
-          <span style={{ color: "crimson", fontWeight: 600 }}>EyE PunE</span>
+          <span style={{ color: "#DC143C", fontWeight: 600 }}>EyE PunE</span>
         </a>
       </div>
 
