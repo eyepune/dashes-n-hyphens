@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   getStartupApplications, getContactMessages, getBlogPosts,
   createBlogPost, updateBlogPost, deleteBlogPost,
@@ -159,11 +159,7 @@ export default function AdminPage() {
     });
   }, []);
 
-  useEffect(() => {
-    if (authenticated) loadData();
-  }, [authenticated, tab]);
-
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     setLoading(true);
     if (tab === "applications") {
       const { data } = await getStartupApplications();
@@ -176,7 +172,11 @@ export default function AdminPage() {
       setPosts(data || []);
     }
     setLoading(false);
-  };
+  }, [tab]);
+
+  useEffect(() => {
+    if (authenticated) loadData();
+  }, [authenticated, loadData]);
 
   const handleDeletePost = async (id: string) => {
     if (!confirm("Delete this post?")) return;

@@ -91,7 +91,7 @@ export default function GovernmentGrantsPage() {
             </h1>
             <p className="text-white/55 font-sans text-xl leading-relaxed max-w-xl mb-10">
               Billions of rupees in government grants go unclaimed every year. 
-              We help Indian startups secure every rupee they're entitled to.
+              We help Indian startups secure every rupee they&apos;re entitled to.
             </p>
             <div className="flex gap-4">
               <Link href="/contact?consult=true" className="btn-accent">
@@ -106,8 +106,8 @@ export default function GovernmentGrantsPage() {
       <section className="bg-[#4EC3C7] py-12">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <p className="font-serif text-2xl md:text-3xl font-bold text-[#0B1F2F]">
-            "Less than 3% of eligible Indian startups successfully secure government grants — 
-            not because they don't qualify, but because they don't know how."
+            &quot;Less than 3% of eligible Indian startups successfully secure government grants — 
+            not because they don&apos;t qualify, but because they don&apos;t know how.&quot;
           </p>
         </div>
       </section>
